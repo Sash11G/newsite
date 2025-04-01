@@ -1,0 +1,33 @@
+<!-- templates/base.html -->
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/d6a1347680.js" crossorigin="anonymous"></script>
+  <script defer src="{% static 'js/theme.js' %}?v={{ timestamp }}"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}?v={{ timestamp }}" />
+  {% comment %} <link id="theme-style" rel="stylesheet"
+  data-dark="{% static 'css/home.css' %}?v={{ timestamp }}"
+  data-solar="{% static 'css/sky.css' %}?v={{ timestamp }}"
+  href="{% static 'css/home.css' %}?v={{ timestamp }}"> {% endcomment %}
+  {% block extra_css %}{% endblock %}
+  <title>{% block title %}My Site{% endblock %}</title>
+</head>
+<body>
+
+  {% include "partials/header.html" %}
+  {% include "partials/navbar.html" %}
+<main>
+
+    {% block content %}{% endblock %}
+</main>
+
+
+{% block scripts %}{% endblock %}
+
+</body>
+</html>

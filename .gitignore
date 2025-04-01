@@ -1,0 +1,37 @@
+# Python bytecode files
+*.py[cod]
+__pycache__/
+
+# Environment variables
+.env
+
+# Virtual environments
+venv/
+env/
+.venv/
+.env/
+ENV/
+venv.bak/
+
+# Database and other local data
+*.sqlite3
+
+# Django cache and media
+media/
+staticfiles/
+*.log
+
+# Testing
+.coverage
+.tox/
+
+# IDEs and text editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.DS_Store
+
+# Pytest and other testing artifacts
+.pytest_cache/
+htmlcov/

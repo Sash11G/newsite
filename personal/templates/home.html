@@ -1,0 +1,38 @@
+<!-- templates/home.html -->
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home | My Site{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" id="theme-style"
+href="{% static 'css/home.css' %}?v={{ timestamp }}"
+data-dark="{% static 'css/home.css' %}?v={{ timestamp }}"
+data-solar="{% static 'css/sky.css' %}?v={{ timestamp }}">
+{% endblock %}
+
+{% block content %}    
+
+  
+<div id="sky-container">
+  <div class="sky-dark visible">
+    <div class="stars"></div>
+    <div class="comet"></div>
+    <div class="moving-stars"></div>
+    <div class="moon" id="moon"></div>
+    <div class="phrase"></div>
+  </div>
+
+  <div class="sky-light hidden">
+    <div class="clouds"></div>
+  </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block scripts %}
+  {% comment %} <script src="{% static 'js/home.js' %}?v={{ timestamp }}"></script> {% endcomment %}
+  <script src="{% static 'js/sky2.js' %}?v={{ timestamp }}"></script>
+{% endblock %}

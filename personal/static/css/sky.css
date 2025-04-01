@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+  
+  .sky-light {
+    position: relative;
+    width: 100vw;
+    height: 150vh;
+    background: linear-gradient(to bottom, #87ceeb, #e0f7ff); /* blue sky */
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  .clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    pointer-events: none;
+    overflow: visible; /* allow cloud shadows to render fully */
+  }
+/* 
+  .cloud {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    width: 100px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.9;
+  
+
+    box-shadow:
+      30px 10px 0 0 white,
+      60px 15px 0 0 white,
+      90px 5px 0 0 white;
+  } 
+*/
+  
+  .cloud {
+    position: absolute;
+    top: 30%;
+    left: -400px;
+    width: 100px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.9;
+    animation: moveCloud 70s linear forwards;
+  
+    box-shadow:
+      30px 10px 0 0 white,
+      60px 15px 0 0 white,
+      90px 5px 0 0 white,
+      45px -10px 0 0 white,
+      20px 25px 0 0 white;
+  
+    filter: blur(2.5px); /* softens the edges slightly */
+  }
+
+  
+  @keyframes moveCloud {
+    0%   { transform: translateX(-20); }
+    100% { transform: translateX(200vw); }
+  }
+  

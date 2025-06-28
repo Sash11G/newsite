@@ -69,6 +69,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+
+  document.querySelector('.custom-scroll-arrow')?.addEventListener('click', () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+  });
   // Define the toggle function
   function toggleTheme() {
     const nextTheme = themeMap[theme];

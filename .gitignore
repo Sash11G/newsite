@@ -1,3 +1,6 @@
+# Ignore the folder with text files
+/private_data/
+
 # Python bytecode files
 *.py[cod]
 __pycache__/

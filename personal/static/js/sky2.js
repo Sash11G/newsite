@@ -1,10 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-  fetch("https://d267-2800-a4-1c26-9c00-6c04-6aa-1601-cf38.ngrok-free.app", {
-    headers: {
-      "ngrok-skip-browser-warning": "true"
-    }
-  });
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
   
   
   window.scrollTo(0, 0);

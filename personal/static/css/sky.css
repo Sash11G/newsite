@@ -6,7 +6,7 @@ body {
   }
   
   .sky-light {
-    position: relative;
+    position: fixed;
     width: 100vw;
     height: 150vh;
     background: linear-gradient(to bottom, #87ceeb, #e0f7ff); /* blue sky */

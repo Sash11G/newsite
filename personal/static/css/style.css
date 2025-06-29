@@ -10,30 +10,26 @@
 }
 
 html, body {
-  height: auto;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
-}
-
-.section {
-  height: 100vh; /* Full viewport height */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  background-color: #f0f0f0;
-  border-bottom: 1px solid #ccc;
-}
-
-
-body {
-  color: black;
-  background-color: white;
   margin: 0;
   padding: 0;
+  height: auto;
   overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  color: black;
+  background-color: white;
 }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+
+
+
+
 
 body::-webkit-scrollbar {
   width: 0.25rem;
@@ -237,18 +233,6 @@ a {
   transform: scale(1.1);
 }
 
-/* .visible {
-  opacity: 1;
-  pointer-events: auto;
-  transition: opacity 1s ease;
-}
-
-.hidden {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 1s ease;
-} */
-
 .sky-light.hidden,
 .sky-dark.hidden {
   display: none !important;
@@ -293,13 +277,6 @@ a {
 /* Small screens */
 @media only screen and (max-width: 600px) {
   .navbar {
-    /* display: flex;
-    flex-wrap: wrap;
-    max-width: 100vw;
-    width: 100vw;
-    justify-content: center;
-    align-items: center; */
-    /* box-sizing: border-box; */
     bottom: 0;
     height: 4rem;
   }
@@ -317,38 +294,22 @@ a {
   }
 
   .nav-item {
-    /* flex: 1 1 0; */
-    /* display: flex; */
-    /* justify-content: center; */
+
     align-items: center;
     min-width: 0;
     height: 100%;
     pointer-events: auto;
     touch-action: manipulation;
-    /* box-sizing: border-box; */
   }
   
   .nav-link {
-    /* display: flex; */
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-decoration: none;
     height: 100%;
-    /* font-size: 0.7rem; */
-    /* white-space: nowrap; */
     line-height: 0;
   }
-
-
-  /* .theme-icon {
-    width: 1.7rem !important;
-    min-width: 0 !important;
-    max-width: 100%;
-    height: 1.7rem !important;
-    margin: 0 !important;
-    display: block;
-  } */
 
   .logo {
     display: none;
@@ -360,15 +321,10 @@ a {
     height: auto !important;
   }
 
-
-
-
   main {
     margin: 0;
   }
 }
-
-
 
 /* Large screens */
 @media only screen and (min-width: 600px) {

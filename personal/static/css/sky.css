@@ -7,9 +7,12 @@ body {
   
   .sky-light {
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100vw;
-    height: 150vh;
+    height: 100vh;
     background: linear-gradient(to bottom, #87ceeb, #e0f7ff); /* blue sky */
+    z-index: -1;
     pointer-events: none;
     overflow: hidden;
   }

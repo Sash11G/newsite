@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Apply the current theme to the document
   document.documentElement.classList.add(theme);
   
-  updateSky(); // 👈 Call this here!
+  updateSky();
 
   // Apply the corresponding CSS
   if (themeLink) {
@@ -52,9 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
       lightSky.classList.add("hidden");
       lightSky.classList.remove("visible");
   
-      if (typeof initDarkSky === "function") {
-        initDarkSky(darkSky);
-      }
+      // if (typeof initDarkSky === "function") {
+      //   initDarkSky(darkSky);
+      // }
   
     } else {
       lightSky.classList.add("visible");
@@ -63,9 +63,9 @@ document.addEventListener("DOMContentLoaded", () => {
       darkSky.classList.add("hidden");
       darkSky.classList.remove("visible");
   
-      if (typeof initLightSky === "function") {
-        initLightSky(lightSky);
-      }
+      // if (typeof initLightSky === "function") {
+      //   initLightSky(lightSky);
+      // }
     }
   }
 

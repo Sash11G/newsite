@@ -4,13 +4,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://kit.fontawesome.com/d6a1347680.js" crossorigin="anonymous"></script>
   <script defer src="{% static 'js/theme.js' %}?v={{ timestamp }}"></script>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet" />
+
+  <!-- Load Open Sans + Playfair Display together -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Your main stylesheet -->
   <link rel="stylesheet" href="{% static 'css/style.css' %}?v={{ timestamp }}" />
+
   {% block extra_css %}{% endblock %}
+
   <title>{% block title %}My Site{% endblock %}</title>
 </head>
 <body>
@@ -19,12 +28,23 @@
   {% include "partials/navbar.html" %}
 <main>
 
-    {% block content %}
-    {% endblock %}
+<div class="page-content">
+  {% block content %}{% endblock %}
+</div>
+
 </main>
 
 
-{% block scripts %}{% endblock %}
+{% block scripts %}
+  <!-- 1) load Three.js synchronously -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
+
+  <!-- 2) then your 3D‐title initializer -->
+  <script defer src="{% static 'js/title3d.js' %}?v={{ timestamp }}"></script>
+
+  <!-- 3) then your sky animation -->
+  <script defer src="{% static 'js/sky2.js' %}?v={{ timestamp }}"></script>
+{% endblock %}
 
 </body>
 </html>

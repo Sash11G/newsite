@@ -25,12 +25,6 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-
-
-
-
-
-
 body::-webkit-scrollbar {
   width: 0.25rem;
 }
@@ -42,6 +36,139 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background: #6649b8;
 }
+
+#sky-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;            /* sit behind everything */
+  pointer-events: none;   /* clicks go through to the page */
+}
+/* home.css (or style.css) */
+
+/* in your CSS */
+.intro-grid {
+  display: grid;
+  /* 2fr = 2/3, 1fr = 1/3 of available width */
+  grid-template-columns: 2fr 1fr;
+  /* two rows: auto for title, 1fr for video */
+  grid-template-rows: auto 1fr;
+  /* name the areas */
+  grid-template-areas:
+    "title side"
+    "video side";
+  width: 100vw;
+  max-width: 100%;
+  gap: 2rem;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+
+.title-container {
+  perspective: 1200px;            /* how “strong” the 3D effect is */
+}
+
+.intro-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #fff;
+  transform-style: preserve-3d;
+  transform:
+    rotateX(30deg)               /* tilt toward the viewer */
+    translateZ(20px);            /* pull it forward */
+  /* optional: add a subtle shadow underneath */
+  text-shadow: 0 4px 6px rgba(0,0,0,0.4);
+  margin: 0 0 0 7rem;
+}
+
+
+.side-panel {
+  grid-area: side;
+
+  /* make it look like frosted glass */
+  background: rgba(255, 255, 255, 0.1);    /* very light tint */
+  backdrop-filter: blur(5px);             /* strong blur behind */
+
+  /* soft white border */
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+
+  /* subtle glow/shadow */
+  box-shadow:
+    0 4px 30px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+
+  padding: 1.5rem;
+  margin: 0 4rem 0 0;
+}
+
+.side-panel-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.25rem;               /* slightly larger */
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+
+  /* engraved effect */
+  text-shadow:
+    1px 1px 1px rgba(0, 0, 0, 0.7),
+   -1px -1px 1px rgba(255, 255, 255, 0.4);
+
+  /* optional stroke for crisp edges */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.3);
+}
+
+.side-panel h2,
+.side-panel p {
+  /* Serif for elegance */
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  /* Make the fill slightly transparent so the panel color bleeds through */
+  color: rgba(255, 255, 255, 0.9);
+
+  /* Engraved text‐shadow: dark inset + light highlight */
+  text-shadow:
+    /* dark “engraved” shadow down‐right */
+    1px 1px 1px rgba(0, 0, 0, 0.7),
+    /* light highlight up‐left */
+   -1px -1px 1px rgba(255, 255, 255, 0.4);
+
+  /* Optional: tiny stroke to sharpen edges */
+  -webkit-text-stroke: 0.5px rgba(0, 0, 0, 0.3);
+}
+
+.intro-video {
+  grid-area: video;
+  display: flex;
+  align-items: center;   /* vertical center of the video row */
+  justify-content: center;/* horizontal center of the left column */
+}
+
+.intro-video iframe {
+  width: 100%;           /* fills the 2/3-width column */
+  max-width: calc(13/24 * 100vw);
+  aspect-ratio: 16/9;
+  border: none;
+  margin-left: 5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+
+
+
+.page-content {
+  position: relative;
+  z-index: 1;         /* above the sky */
+  /* optional max-width, padding, background, etc. */
+  min-height: 200vh;
+  padding: 2rem;
+  background: rgba(255,255,255,0.8);
+}
+
 
 main {
   /* background: red; */
@@ -342,7 +469,7 @@ a {
   }
 
   .navbar:hover {
-    width: 16rem;
+    width: 14rem;
   }
 
   .navbar:hover .link-text {
